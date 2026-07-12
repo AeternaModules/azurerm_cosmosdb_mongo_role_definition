@@ -6,7 +6,7 @@ resource "azurerm_cosmosdb_mongo_role_definition" "cosmosdb_mongo_role_definitio
   inherited_role_names     = each.value.inherited_role_names
 
   dynamic "privilege" {
-    for_each = each.value.privilege != null ? [each.value.privilege] : []
+    for_each = each.value.privilege != null ? each.value.privilege : []
     content {
       actions = privilege.value.actions
       resource {

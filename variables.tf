@@ -17,13 +17,13 @@ EOT
     cosmos_mongo_database_id = string
     role_name                = string
     inherited_role_names     = optional(list(string))
-    privilege = optional(object({
+    privilege = optional(list(object({
       actions = list(string)
       resource = object({
         collection_name = optional(string)
         db_name         = optional(string)
       })
-    }))
+    })))
   }))
 }
 
